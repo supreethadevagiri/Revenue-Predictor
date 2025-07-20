@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revenue Prediction Form</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('/static/form_image.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-wrapper {
+      background-color: rgba(255, 255, 255, 0.97);
+      padding: 30px 40px;
+      margin-right: 5%;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 320px;
+    }
+
+    .form-wrapper h2 {
+      text-align: left;
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #2c3e50;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-wrapper h2::before {
+      content: "📦";
+      font-size: 22px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007BFF;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        justify-content: center;
+        background-position: top center;
+      }
+
+      .form-wrapper {
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form class="form-wrapper" action="{{ url_for('predict') }}" method="post" onsubmit="return showAlert()">
+    <h2>Revenue Prediction Form</h2>
+
+    <label for="Customer">Customer</label>
+    <input type="text" id="Customer" name="Customer" required />
+
+    <label for="Location">Location</label>
+    <input type="text" id="Location" name="Location" required />
+
+    <label for="BusinessType">Business Type</label>
+    <input type="text" id="BusinessType" name="BusinessType" required />
+
+    <label for="OrderCount">Order Count</label>
+    <input type="number" id="OrderCount" name="OrderCount" required />
+
+    <label for="NumberOfPieces">Number of Pieces</label>
+    <input type="number" id="NumberOfPieces" name="NumberOfPieces" required />
+
+    <label for="DayOfWeek">Day of Week (0=Mon, 6=Sun)</label>
+    <input type="number" id="DayOfWeek" name="DayOfWeek" min="0" max="6" required />
+
+    <button type="submit">Predict Revenue</button>
+  </form>
+
+  <script>
+    function showAlert() {
+      alert("Your prediction is being processed...");
+      return true;
+    }
+  </script>
+</body>
+</html>
