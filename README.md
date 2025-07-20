@@ -108,6 +108,13 @@ The predicted value is $12,348.55
 
 ---
 
+## 🌐 Live Demo on Render
+
+The app is live and accessible here:  
+👉 [https://revenue-predictor.onrender.com](https://revenue-predictor.onrender.com)
+
+---
+
 ## 🔐 License
 
 This project is released under the [MIT License](LICENSE).
